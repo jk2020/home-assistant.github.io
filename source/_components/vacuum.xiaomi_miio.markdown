@@ -182,15 +182,15 @@ To fetch the token follow these instructions depending on your mobile phone plat
 
 1. Configure the robot with the Mi-Home app.
 2. Using iTunes, create an unencrypted backup of your iPhone.
-3. Install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
-4. Open the "Raw Data" module.
-5. Navigate to `com.xiaomi.mihome`.
+3. Install [iBackupBot](http://www.icopybot.com/itunes-backup-manager.htm), open it, and open your backup. (Remark. iBackup works only if you register).
+4. Navigate to "App" at bottom.
+5. Use search function and do a search “Xiaomi” to get`com.xiaomi.mihome`.
 6. Search for a file that looks like this: `123456789_mihome.sqlite` – note that `_mihome.sqlite` is *not* the correct file.
 7. Save this file to your filesystem.
 8. Install [DB Browser for SQLite](http://sqlitebrowser.org/).
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
-11. Input and run this query: `SELECT ZTOKEN FROM ZDEVICE WHERE ZNAME = "Mi Robot Vacuum"`
+11. Input and run this query: `SELECT ZTOKEN FROM ZDEVICE WHERE ZNAME = "Mi Robot"`
 12. Copy the returned 32-digit hexadecimal string to your clipboard.
 13. Open `Terminal` and execute this command: `echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000`
 14. Use the resulting string as your token.
